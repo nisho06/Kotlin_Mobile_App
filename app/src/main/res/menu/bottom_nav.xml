@@ -6,23 +6,13 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home"/>
     <item
-        android:title="Add Property"
-        android:id="@+id/addProperty"
-        android:icon="@drawable/ic_add_property"/>
+        android:title="Properties"
+        android:id="@+id/property"
+        android:icon="@drawable/ic_property"/>
     <item
-        android:title="Add Landlord"
-        android:id="@+id/addLandlord"
-        android:icon="@drawable/ic_add_landlord"/>
-
-<!--    <item-->
-<!--        android:title="View Property"-->
-<!--        android:id="@+id/viewProperty"-->
-<!--        android:icon="@drawable/ic_view_property"/>-->
-
-<!--    <item-->
-<!--        android:title="View Landlord"-->
-<!--        android:id="@+id/viewLandlord"-->
-<!--        android:icon="@drawable/ic_view_landlord"/>-->
+        android:title="Landlords"
+        android:id="@+id/landlord"
+        android:icon="@drawable/ic_landlord"/>
 
     <item
         android:title="Notifications"

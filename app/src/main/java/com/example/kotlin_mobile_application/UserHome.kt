@@ -1,20 +1,9 @@
 package com.example.kotlin_mobile_application
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.android.volley.AuthFailureError
-import com.android.volley.Response
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.example.kotlin_mobile_application.databinding.ActivityUserHomeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.json.JSONException
-import org.json.JSONObject
 
 class UserHome : AppCompatActivity() {
 
@@ -41,11 +30,8 @@ class UserHome : AppCompatActivity() {
                     R.id.home -> replaceFragment(Home())
                     R.id.account -> replaceFragment(Account())
                     R.id.notifications -> replaceFragment(Notifications())
-//                    R.id.viewLandlord -> replaceFragment(ViewLandlord())
-//                    R.id.viewProperty -> replaceFragment(ViewProperty())
-                    R.id.addProperty -> replaceFragment(AddProperty())
-                    R.id.addLandlord -> replaceFragment(AddLandlord())
-
+                    R.id.landlord -> replaceFragment(Landlord())
+                    R.id.property -> replaceFragment(Properties())
                     else -> {
 
                     }
