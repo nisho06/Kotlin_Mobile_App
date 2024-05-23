@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Featured Properties"
+        android:text="Landlords"
         android:gravity="center"
         android:textStyle="bold"
         android:textAllCaps="true"
@@ -20,7 +20,7 @@
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/property_recycler_view"
+        android:id="@+id/landlord_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -30,7 +30,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
-        android:text="Add New Property"
+        android:text="Add New Landlord"
         android:layout_gravity="center"
         android:layout_margin="10dp">
     </Button>

@@ -30,7 +30,7 @@ class UserHome : AppCompatActivity() {
                     R.id.home -> replaceFragment(Home())
                     R.id.account -> replaceFragment(Account())
                     R.id.notifications -> replaceFragment(Notifications())
-                    R.id.landlord -> replaceFragment(Landlord())
+                    R.id.landlord -> replaceFragment(Landlords())
                     R.id.property -> replaceFragment(Properties())
                     else -> {
 
