@@ -1,12 +1,27 @@
 package com.example.kotlin_mobile_application
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.AuthFailureError
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +39,7 @@ class Properties : Fragment() {
     private var param2: String? = null
 
     private lateinit var adapter: PropertyAdapter
+    private lateinit var requestQueue: RequestQueue
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,48 +60,48 @@ class Properties : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val property1 = Property(
-            "123 Main St",
-            300000,
-            3,
-            2,
-            1256
-        )
-
-        val property2 = Property(
-            "37 Fernlea Road",
-            35000,
-            5,
-            1,
-            1456
-        )
-
-        val property3 = Property(
-            "57 Mitcham Road",
-            35000,
-            5,
-            1,
-            1456
-        )
-
-        val property4 = Property(
-            "45 Amamzon Road",
-            35000,
-            5,
-            1,
-            1456
-        )
-
-        // Initialize your dataset here
-        val data = arrayOf(property1, property2, property3, property4);
-
         val recyclerView = view.findViewById<RecyclerView>(R.id.property_recycler_view)
 
         // Initialize RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = PropertyAdapter(data)
+        adapter = PropertyAdapter(emptyList()) // Initially empty list
         recyclerView.adapter = adapter
+        requestQueue = Volley.newRequestQueue(context)
+        fetchProperties()
+    }
+    private fun fetchProperties() {
+        val url = "http://192.168.1.141/property_rental/auth/properties.php"
+        val jsonArrayRequest = JsonArrayRequest(
+            Request.Method.GET, url, null,
+            { response ->
+                val properties = mutableListOf<Property>()
+                for (i in 0 until response.length()) {
+                    val propertyJson = response.getJSONObject(i)
+                    val property = parseProperty(propertyJson)
+                    properties.add(property)
+                }
+                updateRecyclerView(properties)
+            },
+            { error ->
+                // Handle error
+                error.printStackTrace()
+            }
+        )
+        requestQueue.add(jsonArrayRequest)
+    }
+
+    private fun parseProperty(json: JSONObject): Property {
+        val address = json.getString("address")
+        val price = json.getInt("price")
+        val bedrooms = json.getInt("no_of_beds")
+        val bathrooms = json.getInt("no_of_baths")
+        val square_feet = json.getInt("square_feet")
+        return Property(address, price, bedrooms, bathrooms, square_feet)
+    }
+
+    private fun updateRecyclerView(properties: List<Property>) {
+        adapter = PropertyAdapter(properties)
+        view?.findViewById<RecyclerView>(R.id.property_recycler_view)?.adapter = adapter
     }
 
     companion object {

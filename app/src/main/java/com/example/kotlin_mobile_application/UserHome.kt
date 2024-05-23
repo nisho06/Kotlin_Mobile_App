@@ -40,41 +40,6 @@ class UserHome : AppCompatActivity() {
             }
     }
 
-//    private fun configureBottomNavigationView(roleName: String?) {
-//        val menu = binding.bottomNavigationView.menu
-//        when (roleName) {
-//            "ADMIN" -> {
-//                menu.findItem(R.id.home).isVisible = true
-//                menu.findItem(R.id.account).isVisible = true
-//                menu.findItem(R.id.notifications).isVisible = false
-//                menu.findItem(R.id.viewLandlord).isVisible = true
-//                menu.findItem(R.id.addLandlord).isVisible = true
-//                menu.findItem(R.id.viewProperty).isVisible = false
-//                menu.findItem(R.id.addProperty).isVisible = false
-//
-//            }
-//            "LANDLORD" -> {
-//                menu.findItem(R.id.home).isVisible = true
-//                menu.findItem(R.id.account).isVisible = true
-//                menu.findItem(R.id.notifications).isVisible = true
-//                menu.findItem(R.id.viewLandlord).isVisible = false
-//                menu.findItem(R.id.addLandlord).isVisible = false
-//                menu.findItem(R.id.viewProperty).isVisible = true
-//                menu.findItem(R.id.addProperty).isVisible = true
-//
-//            }
-//            else -> {
-//                menu.findItem(R.id.home).isVisible = true
-//                menu.findItem(R.id.account).isVisible = true
-//                menu.findItem(R.id.notifications).isVisible = true
-//                menu.findItem(R.id.viewLandlord).isVisible = false
-//                menu.findItem(R.id.addLandlord).isVisible = false
-//                menu.findItem(R.id.viewProperty).isVisible = false
-//                menu.findItem(R.id.addProperty).isVisible = false
-//            }
-//        }
-//    }
-
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager;
         val fragmentTransaction = fragmentManager.beginTransaction();

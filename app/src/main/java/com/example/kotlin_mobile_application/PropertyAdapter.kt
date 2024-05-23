@@ -7,7 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class PropertyAdapter(private val dataSet: Array<Property>): RecyclerView.Adapter<PropertyAdapter.ViewHolder>(){
+class PropertyAdapter(private val properties: List<Property>) :
+    RecyclerView.Adapter<PropertyAdapter.ViewHolder>() {
 
     // Create a ViewHolder Object which defines the views for a single data. Initially it wont have any data with it.
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
@@ -25,8 +26,6 @@ class PropertyAdapter(private val dataSet: Array<Property>): RecyclerView.Adapte
             no_of_beds = view.findViewById(R.id.no_of_beds)
             no_of_bath = view.findViewById(R.id.no_of_bath)
             square_feet = view.findViewById(R.id.square_feet)
-
-
         }
     }
 
@@ -36,7 +35,7 @@ class PropertyAdapter(private val dataSet: Array<Property>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: PropertyAdapter.ViewHolder, position: Int) {
-        val propertyAtIndex = dataSet[position]
+        val propertyAtIndex = properties[position]
         holder.property_address.text = propertyAtIndex.property_address;
         holder.property_price.text = propertyAtIndex.property_price.toString();
         holder.no_of_beds.text = propertyAtIndex.property_beds.toString();
@@ -46,8 +45,8 @@ class PropertyAdapter(private val dataSet: Array<Property>): RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        System.out.println("Size is " + dataSet.size);
-        return dataSet.size
+        System.out.println("Size is " + properties.size);
+        return properties.size
     }
 
 }
