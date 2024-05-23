@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -40,6 +41,7 @@ class Properties : Fragment() {
 
     private lateinit var adapter: PropertyAdapter
     private lateinit var requestQueue: RequestQueue
+    private var btnAddProperty: Button? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +70,19 @@ class Properties : Fragment() {
         recyclerView.adapter = adapter
         requestQueue = Volley.newRequestQueue(context)
         fetchProperties()
+
+
+        btnAddProperty = view.findViewById(R.id.addProperty);
+
+        // Initialize and set up the button
+        btnAddProperty = view.findViewById(R.id.addProperty)
+        btnAddProperty?.setOnClickListener {
+            println("Add Property Button Pressed")
+            val intent = Intent(requireContext(), AddProperty::class.java)
+            startActivity(intent)
+
+            // userLogin() // Uncomment this line if userLogin() is defined and needed
+        }
     }
     private fun fetchProperties() {
         val url = "http://192.168.1.141/property_rental/auth/properties.php"
