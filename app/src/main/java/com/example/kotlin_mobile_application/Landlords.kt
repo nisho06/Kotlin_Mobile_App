@@ -1,5 +1,6 @@
 package com.example.kotlin_mobile_application
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,6 +32,8 @@ class Landlords : Fragment() {
 
     private lateinit var adapter: LandlordAdapter
     private lateinit var requestQueue: RequestQueue
+    private var btnAddLandlord: Button? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +61,19 @@ class Landlords : Fragment() {
         recyclerView.adapter = adapter
         requestQueue = Volley.newRequestQueue(context)
         fetchLandlords();
+
+        btnAddLandlord = view.findViewById(R.id.addLandlord);
+
+        // Initialize and set up the button
+        btnAddLandlord = view.findViewById(R.id.addLandlord)
+        btnAddLandlord?.setOnClickListener {
+            println("Add Property Button Pressed")
+            val intent = Intent(requireContext(), AddLandlord::class.java)
+            startActivity(intent)
+
+            // userLogin() // Uncomment this line if userLogin() is defined and needed
+        }
+
     }
 
     private fun fetchLandlords() {

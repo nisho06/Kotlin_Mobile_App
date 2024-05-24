@@ -27,6 +27,7 @@
 
     <!-- Button -->
     <Button
+        android:id="@+id/addLandlord"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corner"
