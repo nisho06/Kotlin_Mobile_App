@@ -1,18 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Account">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account Fragment"
-        android:layout_gravity="center"
-        android:textSize="26dp"
-        android:textColor="@color/white"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Account Info"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="12dp"
+            android:foreground="?selectableItemBackground"
+            >
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_person_35"
+                    android:foregroundGravity="center"
+                    android:layout_marginLeft="10dp">
+
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Nishothan Vettivel"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center">
+
+                </TextView>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="-304dp"
+                    android:padding="10dp"
+                    android:src="@drawable/green_tick">
+
+                </ImageView>
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_margin="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/purple_house"
+            android:background="@drawable/rounded_border"
+            android:scaleType="centerCrop"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:id="@+id/btnEdtProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_edit"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Edit Profile"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:id="@+id/btnMyProperties"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_property"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="My Properties"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:id="@+id/btnChangePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_password"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Change Password"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:foreground="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:id="@+id/btnHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_help"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Help &amp; Support"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addProperty"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:text="Sign Out"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+</RelativeLayout>
