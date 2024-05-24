@@ -4,7 +4,7 @@ import android.widget.ImageView
 
 class Property(
 //    val propertyImage: ImageView,
-//    val propertyId: Int,
+    val propertyId: Int,
     val property_address: String,
     val property_price: Int,
     val property_beds: Int,

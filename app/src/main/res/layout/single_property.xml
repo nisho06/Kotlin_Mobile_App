@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-        
+
         <ImageView
             android:id="@+id/property_image"
             android:layout_width="match_parent"
@@ -73,81 +73,118 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/property_address"
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/property_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="123 Main St, City, Country"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/no_of_beds"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beds"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="|"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:id="@+id/no_of_bath"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Baths"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="|"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="4dp"/>
+
+                    <TextView
+                        android:id="@+id/square_feet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2345"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sqft"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="4dp"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="123 Main St, City, Country"
-                android:layout_marginTop="8dp" />
+                android:orientation="horizontal">
+
+
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:padding="0dp"
+                    android:background="@drawable/baseline_edit_24"/>
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:padding="0dp"
+                    android:background="@drawable/baseline_delete_24"/>
+
+
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/no_of_beds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Beds"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"/>
-
-            <TextView
-                android:id="@+id/no_of_bath"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="4dp"/>
-
-            <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Baths"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="|"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="4dp"/>
-
-            <TextView
-                android:id="@+id/square_feet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2345"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sqft"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="4dp"/>
-
 
         </LinearLayout>
 
-
-
-
-    </LinearLayout>
 </androidx.cardview.widget.CardView>

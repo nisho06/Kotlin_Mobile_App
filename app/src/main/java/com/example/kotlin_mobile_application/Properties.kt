@@ -42,7 +42,7 @@ class Properties : Fragment() {
     private lateinit var adapter: PropertyAdapter
     private lateinit var requestQueue: RequestQueue
     private var btnAddProperty: Button? = null
-
+    private val emptyList: MutableList<Property> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,7 +66,7 @@ class Properties : Fragment() {
 
         // Initialize RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = PropertyAdapter(emptyList()) // Initially empty list
+        adapter = PropertyAdapter(context, emptyList) // Initially empty list
         recyclerView.adapter = adapter
         requestQueue = Volley.newRequestQueue(context)
         fetchProperties()
@@ -111,11 +111,12 @@ class Properties : Fragment() {
         val bedrooms = json.getInt("no_of_beds")
         val bathrooms = json.getInt("no_of_baths")
         val square_feet = json.getInt("square_feet")
-        return Property(address, price, bedrooms, bathrooms, square_feet)
+        val property_id = json.getInt("property_id")
+        return Property(property_id, address, price, bedrooms, bathrooms, square_feet)
     }
 
-    private fun updateRecyclerView(properties: List<Property>) {
-        adapter = PropertyAdapter(properties)
+    private fun updateRecyclerView(properties: MutableList<Property>) {
+        adapter = PropertyAdapter(context, properties)
         view?.findViewById<RecyclerView>(R.id.property_recycler_view)?.adapter = adapter
     }
 

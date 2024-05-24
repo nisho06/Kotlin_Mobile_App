@@ -33,6 +33,7 @@ class Landlords : Fragment() {
     private lateinit var adapter: LandlordAdapter
     private lateinit var requestQueue: RequestQueue
     private var btnAddLandlord: Button? = null
+    private val emptyList: MutableList<Landlord> = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,7 +58,7 @@ class Landlords : Fragment() {
 
         // Initialize RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = LandlordAdapter(emptyList()) // Initially empty list
+        adapter = LandlordAdapter(context, emptyList) // Initially empty list
         recyclerView.adapter = adapter
         requestQueue = Volley.newRequestQueue(context)
         fetchLandlords();
@@ -101,11 +102,12 @@ class Landlords : Fragment() {
         val firstName = json.getString("first_name")
         val lastName = json.getString("last_name")
         val no_of_properties = json.getInt("property_count")
-        return Landlord(firstName, lastName, no_of_properties);
+        val user_id = json.getInt("user_id")
+        return Landlord(user_id, firstName, lastName, no_of_properties);
     }
 
-    private fun updateRecyclerView(landlords: List<Landlord>) {
-        adapter = LandlordAdapter(landlords)
+    private fun updateRecyclerView(landlords: MutableList<Landlord>) {
+        adapter = LandlordAdapter(context, landlords)
         view?.findViewById<RecyclerView>(R.id.landlord_recycler_view)?.adapter = adapter
     }
 
