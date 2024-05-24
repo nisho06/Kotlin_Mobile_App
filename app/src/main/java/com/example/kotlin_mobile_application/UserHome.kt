@@ -19,16 +19,15 @@ class UserHome : AppCompatActivity() {
         binding = ActivityUserHomeBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
-        replaceFragment(Home())
-
-//        configureBottomNavigationView(roleName)
+        replaceFragment(Home.newInstance(firstName))
 
         binding.bottomNavigationView
             .setOnNavigationItemSelectedListener {
 
+                System.out.println("This methods is being called");
                 when(it.itemId) {
-                    R.id.home -> replaceFragment(Home())
-                    R.id.account -> replaceFragment(Account())
+                    R.id.home -> replaceFragment(Home.newInstance(firstName))
+                    R.id.account -> replaceFragment(Account.newInstance(firstName, lastName))
                     R.id.notifications -> replaceFragment(Notifications())
                     R.id.landlord -> replaceFragment(Landlords())
                     R.id.property -> replaceFragment(Properties())

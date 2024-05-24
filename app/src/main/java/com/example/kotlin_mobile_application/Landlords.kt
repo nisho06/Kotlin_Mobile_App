@@ -65,9 +65,8 @@ class Landlords : Fragment() {
         btnAddLandlord = view.findViewById(R.id.addLandlord);
 
         // Initialize and set up the button
-        btnAddLandlord = view.findViewById(R.id.addLandlord)
         btnAddLandlord?.setOnClickListener {
-            println("Add Property Button Pressed")
+            println("Add Landlord Button Pressed")
             val intent = Intent(requireContext(), AddLandlord::class.java)
             startActivity(intent)
 

@@ -66,15 +66,11 @@ class MainActivity : AppCompatActivity() {
 
                     if (loginStatus.equals("success")){
                         val userInformation = JSONObject(obj.getString("userInformation"));
-                        val dataInformation = JSONObject(obj.getString("dataInformation"));
-
                         val intent = Intent(this, UserHome::class.java)
                         intent.putExtra("username", strUsername)
                         intent.putExtra("firstName", userInformation.getString("firstName"));
                         intent.putExtra("lastName", userInformation.getString("lastName"));
                         intent.putExtra("roleName", userInformation.getString("roleName"));
-                        intent.putExtra("noOfProperties", dataInformation.getString("noOfProperties"));
-                        intent.putExtra("noOfLandlords", dataInformation.getString("noOfLandlords"));
                         startActivity(intent)
                     } else {
                         showCustomDialog();

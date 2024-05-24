@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.android.volley.toolbox.Volley
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
+private lateinit var nameTextView: TextView
+
 
 /**
  * A simple [Fragment] subclass.
@@ -37,7 +42,22 @@ class Account : Fragment() {
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val firstName = arguments?.getString(Account.ARG_FIRSTNAME)
+        val lastName = arguments?.getString(Account.ARG_LASTNAME)
+
+        val nameToDisplay = firstName + " " + lastName;
+
+        nameTextView = view.findViewById<TextView>(R.id.name)
+        nameTextView.text = nameToDisplay;
+    }
+
     companion object {
+
+        private const val ARG_FIRSTNAME = "firstName";
+        private const val ARG_LASTNAME = "lastName";
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -48,11 +68,11 @@ class Account : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(firstName: String?, lastName: String? ) =
             Account().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_FIRSTNAME, firstName)
+                    putString(ARG_LASTNAME, lastName)
                 }
             }
     }
