@@ -1,10 +1,12 @@
 package com.example.kotlin_mobile_application
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.android.volley.toolbox.Volley
 
@@ -52,6 +54,12 @@ class Account : Fragment() {
 
         nameTextView = view.findViewById<TextView>(R.id.name)
         nameTextView.text = nameToDisplay;
+
+        val signOutButton = view.findViewById<Button>(R.id.btnSignOut)
+        signOutButton.setOnClickListener {
+            // Perform sign-out action here
+            signOut();
+        }
     }
 
     companion object {
@@ -75,5 +83,16 @@ class Account : Fragment() {
                     putString(ARG_LASTNAME, lastName)
                 }
             }
+    }
+
+    private fun signOut() {
+        // Clear user session, navigate to sign-in screen, etc.
+        // Clearing shared preferences:
+        val sharedPreferences = requireActivity().getSharedPreferences("your_pref_name", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+
+        (requireActivity() as UserHome).navigateToSignIn()
     }
 }

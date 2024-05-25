@@ -1,5 +1,6 @@
 package com.example.kotlin_mobile_application
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -45,5 +46,13 @@ class UserHome : AppCompatActivity() {
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.commit();
 
+    }
+
+    fun navigateToSignIn() {
+        // Add code here to navigate to your sign-in screen
+        // For example, you might use intents to navigate to another activity
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }
