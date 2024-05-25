@@ -11,6 +11,7 @@ class UserHome : AppCompatActivity() {
     private lateinit var binding : ActivityUserHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val userId = intent.extras?.getString("userId")
         val username = intent.extras?.getString("username")
         val firstName = intent.extras?.getString("firstName")
         val lastName = intent.extras?.getString("lastName")
@@ -30,8 +31,8 @@ class UserHome : AppCompatActivity() {
                     R.id.home -> replaceFragment(Home.newInstance(firstName))
                     R.id.account -> replaceFragment(Account.newInstance(firstName, lastName))
                     R.id.notifications -> replaceFragment(Notifications())
-                    R.id.landlord -> replaceFragment(Landlords())
-                    R.id.property -> replaceFragment(Properties())
+                    R.id.landlord -> replaceFragment(Landlords.newInstance(roleName))
+                    R.id.property -> replaceFragment(Properties.newInstance(userId, roleName))
                     else -> {
 
                     }

@@ -73,16 +73,30 @@ class Properties : Fragment() {
 
 
         btnAddProperty = view.findViewById(R.id.addProperty);
+        val roleName = arguments?.getString(Properties.ARG_ROLE_NAME)
+        System.out.println("Role name is " + roleName);
+
+        btnAddProperty = view.findViewById(R.id.addProperty)
+
+
+        if (roleName == "LANDLORD") {
+            btnAddProperty?.setOnClickListener {
+                val userId = arguments?.getString(Properties.ARG_USER_ID)
+                println("Add Property Button Pressed")
+                val intent = Intent(requireContext(), AddProperty::class.java)
+                System.out.println("Ithuthaanda user id - " + userId);
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+
+                // userLogin() // Uncomment this line if userLogin() is defined and needed
+            }
+        } else {
+            btnAddProperty?.visibility = View.GONE // or View.INVISIBLE
+        }
 
         // Initialize and set up the button
-        btnAddProperty = view.findViewById(R.id.addProperty)
-        btnAddProperty?.setOnClickListener {
-            println("Add Property Button Pressed")
-            val intent = Intent(requireContext(), AddProperty::class.java)
-            startActivity(intent)
 
-            // userLogin() // Uncomment this line if userLogin() is defined and needed
-        }
+
     }
     private fun fetchProperties() {
         val url = "http://192.168.1.141/property_rental/auth/properties.php"
@@ -121,6 +135,9 @@ class Properties : Fragment() {
     }
 
     companion object {
+
+        private const val ARG_USER_ID = "userId";
+        private const val ARG_ROLE_NAME = "roleName";
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -131,11 +148,17 @@ class Properties : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(userId: String?, roleName: String?) =
             Properties().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+                    if (userId != null) {
+                        putString(ARG_USER_ID, userId)
+                        putString(ARG_ROLE_NAME, roleName)
+                    } else {
+                        System.out.println("No user ID available");
+                    }
+
                 }
             }
     }

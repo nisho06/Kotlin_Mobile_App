@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                         val userInformation = JSONObject(obj.getString("userInformation"));
                         val intent = Intent(this, UserHome::class.java)
                         intent.putExtra("username", strUsername)
+                        intent.putExtra("userId", userInformation.getString("userId"));
                         intent.putExtra("firstName", userInformation.getString("firstName"));
                         intent.putExtra("lastName", userInformation.getString("lastName"));
                         intent.putExtra("roleName", userInformation.getString("roleName"));

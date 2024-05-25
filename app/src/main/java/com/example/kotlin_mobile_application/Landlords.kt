@@ -64,15 +64,20 @@ class Landlords : Fragment() {
         fetchLandlords();
 
         btnAddLandlord = view.findViewById(R.id.addLandlord);
+        val roleName = arguments?.getString(Landlords.ARG_ROLE_NAME)
+
+        if (roleName == "ADMIN"){
+            btnAddLandlord?.setOnClickListener {
+                println("Add Landlord Button Pressed")
+                val intent = Intent(requireContext(), AddLandlord::class.java)
+                startActivity(intent)
+            }
+        } else {
+            btnAddLandlord?.visibility = View.GONE // or View.INVISIBLE
+        }
 
         // Initialize and set up the button
-        btnAddLandlord?.setOnClickListener {
-            println("Add Landlord Button Pressed")
-            val intent = Intent(requireContext(), AddLandlord::class.java)
-            startActivity(intent)
 
-            // userLogin() // Uncomment this line if userLogin() is defined and needed
-        }
 
     }
 
@@ -113,6 +118,8 @@ class Landlords : Fragment() {
 
 
     companion object {
+
+        private const val ARG_ROLE_NAME = "roleName";
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
@@ -123,11 +130,11 @@ class Landlords : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(roleName: String?) =
             Landlords().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(Landlords.ARG_ROLE_NAME, roleName)
+
                 }
             }
     }

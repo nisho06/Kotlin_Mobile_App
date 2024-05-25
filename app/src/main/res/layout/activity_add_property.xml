@@ -38,6 +38,7 @@
                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                app:startIconDrawable="@drawable/ic_address">
                <com.google.android.material.textfield.TextInputEditText
+                   android:id="@+id/edtTxtAddress"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:paddingStart="40dp"
@@ -54,6 +55,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_address">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTxtPostCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="40dp"
@@ -70,6 +72,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_person_24">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTxtSquareFeet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="40dp"
@@ -86,6 +89,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_price">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTxtPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="40dp"
@@ -102,6 +106,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_beds">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTxtNoOfBeds"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="40dp"
@@ -118,6 +123,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:startIconDrawable="@drawable/ic_bathroom">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtTxtNoOfBathrooms"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingStart="40dp"
@@ -127,6 +133,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/btnAddProperty"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corner"
